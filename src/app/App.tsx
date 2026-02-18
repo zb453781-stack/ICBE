@@ -9,7 +9,7 @@ import { ContactPage } from './pages/ContactPage';
 
 export default function App() {
   return (
-    <Router>
+    <Router basename="/ICBE">
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1">
