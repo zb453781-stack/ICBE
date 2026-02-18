@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -39,9 +40,17 @@ export function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
             <img
+            // src={`${import.meta.env.BASE_URL}logo.png`}
               src="/logo.png"
               alt="ICBE Logo"
               className="h-16 w-auto object-contain drop-shadow-lg hover:drop-shadow-xl transition-all"
+            onError={(e) => {
+      // Fallback: If relative path fails, try the absolute base path
+      const target = e.currentTarget;
+      if (target.src.indexOf(window.location.origin + '/logo.png') === -1) {
+        target.src = `${import.meta.env.BASE_URL}logo.png`;
+      }
+    }}
             />
           </Link>
 

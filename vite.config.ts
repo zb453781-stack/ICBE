@@ -31,6 +31,6 @@ export default defineConfig({
     },
   },
   assetsInclude: ['**/*.svg', '**/*.csv'],
-  base:"/ICBE",
+  base:"/ICBE/",
 })
 

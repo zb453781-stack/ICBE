@@ -13,7 +13,8 @@ export function Footer() {
           <div>
             <div className="mb-6 bg-white rounded-lg p-4 inline-block shadow-lg">
               <img
-                src="/logo.png"
+              src={`${import.meta.env.BASE_URL}LOGO.jpeg`}
+                // src="/LOGO.jpeg"
                 alt="ICBE Logo"
                 className="h-14 w-auto object-contain"
               />
