@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import logoImg from '/logo.png'; // <--- Add this line (Vite will find it in the public folder)
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,7 +54,8 @@ export function Navbar() {
             /> */}
             <img
     // We use the dynamic BASE_URL to ensure it works on GitHub's /ICBE/ subfolder
-    src={`${import.meta.env.BASE_URL}logo.png`}
+    // src={`${import.meta.env.BASE_URL}logo.png`}
+    src={logoImg}
     alt="ICBE Logo"
     className="h-16 w-auto object-contain drop-shadow-lg hover:drop-shadow-xl transition-all"
     onError={(e) => {
