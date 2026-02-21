@@ -82,12 +82,20 @@ const withBaseUrl = (path: string): string => {
   const normalizedPath = path.replace(/^\/+/, '');
   const configuredBase = import.meta.env.BASE_URL || '/';
   const normalizedBase = configuredBase.endsWith('/') ? configuredBase : `${configuredBase}/`;
+  const normalizedBaseNoTrailing = normalizedBase.endsWith('/')
+    ? normalizedBase.slice(0, -1)
+    : normalizedBase;
 
   // If the app is opened outside the configured base path (common on temporary
   // previews), fall back to root-based public assets so images still render.
   if (typeof window !== 'undefined') {
     const currentPath = window.location.pathname;
-    if (normalizedBase !== '/' && !currentPath.startsWith(normalizedBase)) {
+    const isWithinBasePath =
+      normalizedBase === '/' ||
+      currentPath === normalizedBaseNoTrailing ||
+      currentPath.startsWith(normalizedBase);
+
+    if (!isWithinBasePath) {
       return `/${normalizedPath}`;
     }
   }

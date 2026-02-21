@@ -4,7 +4,7 @@ import { aboutData } from '../../data/cmsData';
 
 function PageHeader({ title, subtitle }: { title: string; subtitle: string }) {
   return (
-    <section className="pt-32 pb-16 bg-gradient-to-br from-[#0B3D91] to-[#1B7F5B]">
+    <section className="pt-24 sm:pt-32 pb-12 sm:pb-16 bg-gradient-to-br from-[#0B3D91] to-[#1B7F5B]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -12,8 +12,8 @@ function PageHeader({ title, subtitle }: { title: string; subtitle: string }) {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h1 className="text-5xl font-bold text-white mb-6">{title}</h1>
-          <p className="text-xl text-white/90">{subtitle}</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">{title}</h1>
+          <p className="text-base sm:text-xl text-white/90">{subtitle}</p>
         </motion.div>
       </div>
     </section>
@@ -22,7 +22,7 @@ function PageHeader({ title, subtitle }: { title: string; subtitle: string }) {
 
 function IntroductionSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 sm:py-20 bg-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -31,7 +31,7 @@ function IntroductionSection() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <p className="text-xl text-gray-700 leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
               {aboutData.introduction}
             </p>
           </motion.div>
@@ -43,7 +43,7 @@ function IntroductionSection() {
 
 function VisionMissionSection() {
   return (
-    <section className="py-20 bg-[#F5F5F5]">
+    <section className="py-16 sm:py-20 bg-[#F5F5F5]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
           <motion.div
@@ -51,12 +51,12 @@ function VisionMissionSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl p-10 shadow-sm"
+            className="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-sm"
           >
             <div className="w-16 h-16 bg-[#0B3D91]/10 rounded-xl flex items-center justify-center mb-6">
               <Eye className="text-[#0B3D91]" size={32} />
             </div>
-            <h2 className="text-3xl font-bold text-[#0B3D91] mb-6">Our Vision</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B3D91] mb-6">Our Vision</h2>
             <p className="text-lg text-gray-700 leading-relaxed">
               {aboutData.vision}
             </p>
@@ -67,12 +67,12 @@ function VisionMissionSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl p-10 shadow-sm"
+            className="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 shadow-sm"
           >
             <div className="w-16 h-16 bg-[#1B7F5B]/10 rounded-xl flex items-center justify-center mb-6">
               <Target className="text-[#1B7F5B]" size={32} />
             </div>
-            <h2 className="text-3xl font-bold text-[#0B3D91] mb-6">Our Mission</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0B3D91] mb-6">Our Mission</h2>
             <p className="text-lg text-gray-700 leading-relaxed">
               {aboutData.mission}
             </p>
@@ -85,16 +85,16 @@ function VisionMissionSection() {
 
 function ObjectivesSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 sm:py-20 bg-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold text-[#0B3D91] mb-6">Strategic Objectives</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0B3D91] mb-6">Strategic Objectives</h2>
           <p className="text-lg text-gray-600">
-            Our comprehensive approach to creating lasting change in communities
+            ICBE's roadmap for inclusive leadership, resilient institutions, and sustainable progress
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-5 sm:gap-6 max-w-5xl mx-auto">
           {aboutData.objectives.map((objective, index) => (
             <motion.div
               key={index}
@@ -127,16 +127,16 @@ function CoreValuesSection() {
   };
 
   return (
-    <section className="py-20 bg-[#F5F5F5]">
+    <section className="py-16 sm:py-20 bg-[#F5F5F5]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold text-[#0B3D91] mb-6">Our Core Values</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0B3D91] mb-6">Our Core Values</h2>
           <p className="text-lg text-gray-600">
-            The principles that guide our work and define our organizational culture
+            Principles that guide every intervention and partnership
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {aboutData.coreValues.map((value, index) => {
             const Icon = iconMap[index] || Users;
             return (
@@ -146,7 +146,7 @@ function CoreValuesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow"
+                className="bg-white rounded-2xl p-6 sm:p-8 hover:shadow-lg transition-shadow"
               >
                 <div className="w-14 h-14 bg-[#0B3D91]/10 rounded-xl flex items-center justify-center mb-6">
                   <Icon className="text-[#0B3D91]" size={28} />
@@ -164,12 +164,12 @@ function CoreValuesSection() {
 
 function TimelineSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 sm:py-20 bg-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl font-bold text-[#0B3D91] mb-6">Our Journey</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0B3D91] mb-6">Our Journey</h2>
           <p className="text-lg text-gray-600">
-            Key milestones in our commitment to community empowerment
+            How ICBE creates impact through listening, co-creation, and long-term systems building
           </p>
         </div>
 
@@ -217,7 +217,7 @@ export function AboutPage() {
     <div>
       <PageHeader
         title="About ICBE"
-        subtitle="Building Empowerment Through Community-Centered Development"
+        subtitle="Empowering Communities, Advancing Equity, Building Resilience"
       />
       <IntroductionSection />
       <VisionMissionSection />

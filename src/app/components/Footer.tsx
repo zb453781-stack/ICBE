@@ -4,8 +4,7 @@ import {
   Phone,
   MapPin,
   Facebook,
-  Twitter,
-  Linkedin,
+  Youtube,
   Instagram,
   type LucideIcon,
 } from 'lucide-react';
@@ -13,16 +12,35 @@ import { contactInfo } from '../../data/cmsData';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const handleInternalNavigation = (path: string) => {
+    if (typeof window !== 'undefined') {
+      if (path.includes('#')) {
+        return;
+      }
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  };
 
   const socialLinks: Array<{
     label: string;
-    href?: string;
+    href: string;
     Icon: LucideIcon;
   }> = [
-    { label: 'Facebook', href: contactInfo.socialLinks?.facebook, Icon: Facebook },
-    { label: 'Twitter', href: contactInfo.socialLinks?.twitter, Icon: Twitter },
-    { label: 'LinkedIn', href: contactInfo.socialLinks?.linkedin, Icon: Linkedin },
-    { label: 'Instagram', href: contactInfo.socialLinks?.instagram, Icon: Instagram },
+    {
+      label: 'Instagram',
+      href: 'https://www.instagram.com/icbe.pk?igsh=MWkwMXI4b2o2NXg5dw==',
+      Icon: Instagram,
+    },
+    {
+      label: 'YouTube',
+      href: 'https://www.youtube.com/@EmpowerTalksbyICBE',
+      Icon: Youtube,
+    },
+    {
+      label: 'Facebook',
+      href: 'https://www.facebook.com/share/1E9n4Xfj6a/',
+      Icon: Facebook,
+    },
   ];
 
   const privacyPolicyHref =
@@ -37,8 +55,8 @@ export function Footer() {
 
   return (
     <footer className="bg-[#0B3D91] text-white">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
           <div>
             <div className="mb-6 bg-white rounded-lg p-4 inline-block shadow-lg">
               <img
@@ -48,24 +66,10 @@ export function Footer() {
               />
             </div>
             <p className="text-white/80 mb-6">
-              Empowering vulnerable communities through climate resilience, gender equality, and
-              community-driven development.
+              Empowering Communities, Advancing Equity, Building Resilience.
             </p>
             <div className="flex space-x-3">
               {socialLinks.map(({ label, href, Icon }) => {
-                if (!href) {
-                  return (
-                    <span
-                      key={label}
-                      className="w-11 h-11 bg-white/10 rounded-full flex items-center justify-center opacity-50 cursor-not-allowed"
-                      aria-label={`${label} link coming soon`}
-                      title={`${label} link coming soon`}
-                    >
-                      <Icon size={22} className="text-white" />
-                    </span>
-                  );
-                }
-
                 const isExternal = /^https?:\/\//i.test(href);
 
                 return (
@@ -90,31 +94,48 @@ export function Footer() {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/" className="text-white/80 hover:text-white transition-colors">
+                <Link
+                  to="/"
+                  onClick={() => handleInternalNavigation('/')}
+                  className="text-white/80 hover:text-white transition-colors"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-white/80 hover:text-white transition-colors">
+                <Link
+                  to="/about"
+                  onClick={() => handleInternalNavigation('/about')}
+                  className="text-white/80 hover:text-white transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
                 <Link
                   to="/services"
+                  onClick={() => handleInternalNavigation('/services')}
                   className="text-white/80 hover:text-white transition-colors"
                 >
                   Our Services
                 </Link>
               </li>
               <li>
-                <Link to="/gallery" className="text-white/80 hover:text-white transition-colors">
+                <Link
+                  to="/gallery"
+                  onClick={() => handleInternalNavigation('/gallery')}
+                  className="text-white/80 hover:text-white transition-colors"
+                >
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-white/80 hover:text-white transition-colors">
-                  Contact
+                <Link
+                  to="/contact"
+                  onClick={() => handleInternalNavigation('/contact')}
+                  className="text-white/80 hover:text-white transition-colors"
+                >
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -123,47 +144,52 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-lg mb-6 flex items-center space-x-2">
               <span className="w-1 h-6 bg-[#1B7F5B] rounded-full"></span>
-              <span>Our Services</span>
+              <span>Core Focus Areas</span>
             </h3>
             <ul className="space-y-3">
               <li>
                 <Link
-                  to="/services"
-                  className="text-white/80 hover:text-white transition-colors"
+                  to="/services#climate-resilience"
+                  onClick={() => handleInternalNavigation('/services#climate-resilience')}
+                  className="text-white/80 hover:text-white transition-colors leading-relaxed"
                 >
-                  Climate Resilience
+                  Climate Resilience and Emergency Response
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services"
-                  className="text-white/80 hover:text-white transition-colors"
+                  to="/services#mental-health"
+                  onClick={() => handleInternalNavigation('/services#mental-health')}
+                  className="text-white/80 hover:text-white transition-colors leading-relaxed"
                 >
-                  GBV Prevention
+                  Mental Health and Psychosocial Support
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services"
-                  className="text-white/80 hover:text-white transition-colors"
+                  to="/services#gbv-sea-prevention"
+                  onClick={() => handleInternalNavigation('/services#gbv-sea-prevention')}
+                  className="text-white/80 hover:text-white transition-colors leading-relaxed"
                 >
-                  Youth Leadership
+                  GBV and SEA Prevention
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services"
-                  className="text-white/80 hover:text-white transition-colors"
+                  to="/services#youth-leadership"
+                  onClick={() => handleInternalNavigation('/services#youth-leadership')}
+                  className="text-white/80 hover:text-white transition-colors leading-relaxed"
                 >
-                  Mental Health Support
+                  Youth Leadership and Empowerment
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/services"
-                  className="text-white/80 hover:text-white transition-colors"
+                  to="/services#community-development"
+                  onClick={() => handleInternalNavigation('/services#community-development')}
+                  className="text-white/80 hover:text-white transition-colors leading-relaxed"
                 >
-                  Mobile Outreach
+                  Community Development and Governance
                 </Link>
               </li>
             </ul>
@@ -210,10 +236,10 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-white/60 text-sm text-center md:text-left">
-              &copy; {currentYear} ICBE - International Center for Building Empowerment. All
+              &copy; {currentYear} Institute for Community Building and Empowerment (ICBE). All
               rights reserved.
             </p>
-            <div className="flex space-x-6 text-sm">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
               <a href={privacyPolicyHref} className="text-white/60 hover:text-white transition-colors">
                 Privacy Policy
               </a>

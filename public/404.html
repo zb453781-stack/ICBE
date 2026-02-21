@@ -8,8 +8,12 @@
   <body>
     <script>
       (function () {
-        var segmentCount = 1;
+        var knownBasePath = "/ICBE/";
         var location = window.location;
+        var baseSegment = knownBasePath.replace(/^\/+|\/+$/g, "");
+        var firstPathSegment = location.pathname.split("/").filter(Boolean)[0] || "";
+        var segmentCount =
+          baseSegment && firstPathSegment.toLowerCase() === baseSegment.toLowerCase() ? 1 : 0;
 
         location.replace(
           location.protocol +

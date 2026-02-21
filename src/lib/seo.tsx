@@ -17,7 +17,7 @@ export const SEO = ({
 }: SEOProps) => {
   const fullTitle = title
     ? `${title} | ICBE`
-    : 'ICBE - International Center for Building Empowerment';
+    : 'ICBE - Institute for Community Building and Empowerment';
 
   const configuredSiteUrl = import.meta.env.VITE_SITE_URL?.trim();
   const runtimeOrigin =
@@ -34,7 +34,7 @@ export const SEO = ({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <meta name="theme-color" content="#0B3D91" />
+      <meta name="color-scheme" content="light" />
 
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />

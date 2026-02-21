@@ -1,10 +1,12 @@
-﻿export interface ContactFormPayload {
+export interface ContactFormPayload {
   fullName: string;
   email: string;
   phone: string;
   message: string;
   subject?: string;
 }
+
+export type ContactDeliveryMethod = 'mailto';
 
 const encode = (value: string): string => encodeURIComponent(value).replace(/%20/g, '+');
 
@@ -25,13 +27,14 @@ export const buildContactMailto = (
   return `mailto:${recipientEmail}?subject=${encode(subject)}&body=${encode(body)}`;
 };
 
-export const sendContactForm = (
+export const sendContactForm = async (
   payload: ContactFormPayload,
   recipientEmail: string
-): void => {
+): Promise<ContactDeliveryMethod> => {
   if (typeof window === 'undefined') {
-    throw new Error('Mail client redirection is only available in the browser.');
+    throw new Error('Contact form submission is only available in the browser.');
   }
 
   window.location.href = buildContactMailto(payload, recipientEmail);
+  return 'mailto';
 };

@@ -9,6 +9,17 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  const handleNavClick = (path: string) => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    // Clicking Home while already on Home should still move to the top.
+    if (path === '/' && location.pathname === '/' && !location.hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -23,10 +34,10 @@ export function Navbar() {
 
   const navLinks = [
     { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
-    { path: '/services', label: 'Services' },
+    { path: '/about', label: 'About Us' },
+    { path: '/services', label: 'Our Services' },
     { path: '/gallery', label: 'Gallery' },
-    { path: '/contact', label: 'Contact' }
+    { path: '/contact', label: 'Contact Us' }
   ];
 
   return (
@@ -36,7 +47,7 @@ export function Navbar() {
       }`}
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
             {/* <img
@@ -57,7 +68,7 @@ export function Navbar() {
     // src={`${import.meta.env.BASE_URL}logo.png`}
     src={logoImg}
     alt="ICBE Logo"
-    className="h-16 w-auto object-contain drop-shadow-lg hover:drop-shadow-xl transition-all"
+    className="h-12 sm:h-16 w-auto object-contain drop-shadow-lg hover:drop-shadow-xl transition-all"
     onError={(e) => {
       // Emergency fallback: If the above fails, try a direct relative path
       const target = e.currentTarget;
@@ -74,9 +85,10 @@ export function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`relative px-4 py-2 text-sm font-semibold uppercase tracking-wide transition-all duration-300 group overflow-hidden ${
+                onClick={() => handleNavClick(link.path)}
+                className={`relative px-3 lg:px-4 py-2 text-xs lg:text-sm font-semibold uppercase tracking-wide transition-all duration-300 group overflow-hidden ${
                   link.path === '/contact'
-                    ? 'px-6 py-2.5 bg-gradient-to-r from-[#1B7F5B] to-[#0B3D91] text-white rounded-lg shadow-md hover:shadow-lg hover:from-[#166646] hover:to-[#0A2E6F] transform hover:scale-105'
+                    ? 'px-4 lg:px-6 py-2.5 bg-gradient-to-r from-[#1B7F5B] to-[#0B3D91] text-white rounded-lg shadow-md hover:shadow-lg hover:from-[#166646] hover:to-[#0A2E6F] transform hover:scale-105'
                     : location.pathname === link.path
                     ? 'text-[#0B3D91]'
                     : 'text-gray-600 hover:text-[#0B3D91]'
@@ -140,6 +152,7 @@ export function Navbar() {
                 >
                   <Link
                     to={link.path}
+                    onClick={() => handleNavClick(link.path)}
                     className={`block px-5 py-3 rounded-xl font-semibold uppercase tracking-wider transition-all duration-300 text-sm ${
                       link.path === '/contact'
                         ? 'bg-gradient-to-r from-[#1B7F5B] to-[#0B3D91] text-white shadow-md hover:shadow-lg hover:from-[#166646] hover:to-[#0A2E6F] transform hover:scale-105'

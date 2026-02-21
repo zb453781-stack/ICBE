@@ -1,4 +1,5 @@
-const gaId = import.meta.env.VITE_GA_ID;
+const gaId = import.meta.env.VITE_GA_ID?.trim();
+let gaInitialized = false;
 
 declare global {
   interface Window {
@@ -8,8 +9,11 @@ declare global {
 }
 
 export const initializeGA = () => {
+  if (gaInitialized || typeof window === 'undefined') {
+    return;
+  }
+
   if (!gaId) {
-    console.warn('GA_ID not configured');
     return;
   }
 
@@ -34,6 +38,8 @@ export const initializeGA = () => {
     allow_google_signals: false,
     allow_ad_personalization_signals: false,
   });
+
+  gaInitialized = true;
 };
 
 export const trackPageView = (page: string) => {
