@@ -6,7 +6,7 @@ export interface ContactFormPayload {
   subject?: string;
 }
 
-export type ContactDeliveryMethod = 'mailto';
+export type ContactDeliveryMethod = 'direct' | 'mailto_fallback';
 
 const encode = (value: string): string => encodeURIComponent(value).replace(/%20/g, '+');
 
@@ -35,6 +35,33 @@ export const sendContactForm = async (
     throw new Error('Contact form submission is only available in the browser.');
   }
 
+  const subject = payload.subject?.trim() || 'New Contact Form Submission';
+  const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(recipientEmail)}`;
+
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: payload.fullName.trim(),
+        email: payload.email.trim(),
+        phone: payload.phone.trim(),
+        message: payload.message.trim(),
+        _subject: subject,
+        _captcha: 'false',
+      }),
+    });
+
+    if (response.ok) {
+      return 'direct';
+    }
+  } catch {
+    // Fall back to mailto below.
+  }
+
   window.location.href = buildContactMailto(payload, recipientEmail);
-  return 'mailto';
+  return 'mailto_fallback';
 };

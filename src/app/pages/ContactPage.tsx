@@ -1,8 +1,8 @@
-import { useState, type ChangeEvent, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Info, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { contactInfo } from '../../data/cmsData';
-import { sendContactForm } from '../../lib/email';
+import { sendContactForm, type ContactDeliveryMethod } from '../../lib/email';
 
 function PageHeader({ title, subtitle }: { title: string; subtitle: string }) {
   return (
@@ -48,8 +48,18 @@ export function ContactPage() {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submissionNotice, setSubmissionNotice] = useState<string | null>(null);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [deliveryMethod, setDeliveryMethod] = useState<ContactDeliveryMethod | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const successTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (successTimerRef.current) {
+        window.clearTimeout(successTimerRef.current);
+      }
+    };
+  }, []);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -91,10 +101,9 @@ export function ContactPage() {
 
     setIsSubmitting(true);
     setSubmitError(null);
-    setSubmissionNotice(null);
 
     try {
-      await sendContactForm(
+      const method = await sendContactForm(
         {
           fullName: formData.fullName,
           email: formData.email,
@@ -104,12 +113,21 @@ export function ContactPage() {
         },
         contactInfo.email
       );
-      setSubmissionNotice(
-        `A pre-filled email draft has been prepared for ${contactInfo.email}. Send it from your email app to complete submission.`
-      );
+      setDeliveryMethod(method);
+      setIsSuccess(true);
+      setFormData({ fullName: '', email: '', phone: '', message: '' });
+
+      if (successTimerRef.current) {
+        window.clearTimeout(successTimerRef.current);
+      }
+
+      successTimerRef.current = window.setTimeout(() => {
+        setIsSuccess(false);
+        successTimerRef.current = null;
+      }, 5000);
     } catch {
       setSubmitError(
-        `Unable to open your email app automatically. Please email us directly at ${contactInfo.email}.`
+        `Unable to submit your inquiry right now. Please email us directly at ${contactInfo.email}.`
       );
     } finally {
       setIsSubmitting(false);
@@ -126,10 +144,6 @@ export function ContactPage() {
 
     if (submitError) {
       setSubmitError(null);
-    }
-
-    if (submissionNotice) {
-      setSubmissionNotice(null);
     }
   };
 
@@ -325,14 +339,18 @@ export function ContactPage() {
                 </motion.div>
               )}
 
-              {submissionNotice && (
+              {isSuccess && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg flex items-start space-x-3"
+                  className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-3"
                 >
-                  <Info className="text-blue-700 flex-shrink-0" size={20} />
-                  <p className="text-blue-900 text-sm">{submissionNotice}</p>
+                  <CheckCircle className="text-green-600 flex-shrink-0" size={24} />
+                  <p className="text-green-800">
+                    {deliveryMethod === 'direct'
+                      ? 'Your inquiry has been sent successfully to icbe.pk@gmail.com.'
+                      : 'Your email app should open with this message pre-filled. Send it to complete your submission.'}
+                  </p>
                 </motion.div>
               )}
             </motion.div>
