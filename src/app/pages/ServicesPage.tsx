@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Sprout, Shield, Users, Heart, Truck, CheckCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { servicesData } from '../../data/cmsData';
@@ -89,14 +89,8 @@ function ServiceCard({ service, index, reverse = false }: { service: any; index:
 }
 
 function getServiceImage(serviceId: string): string {
-  const images: Record<string, string> = {
-    'climate-resilience': 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=600&fit=crop',
-    'gbv-prevention': 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=600&fit=crop',
-    'youth-leadership': 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=600&fit=crop',
-    'mental-health': 'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800&h=600&fit=crop',
-    'mobile-outreach': 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop',
-  };
-  return images[serviceId] || images['climate-resilience'];
+  const matchedService = servicesData.find((service) => service.id === serviceId);
+  return matchedService?.image || `${import.meta.env.BASE_URL}assets/images/services/default.svg`;
 }
 
 function getServiceKeyPoints(serviceId: string): string[] {
@@ -199,3 +193,4 @@ export function ServicesPage() {
     </div>
   );
 }
+

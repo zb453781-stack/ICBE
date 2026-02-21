@@ -1,7 +1,8 @@
-import { useState } from 'react';
+﻿import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { contactInfo } from '../../data/cmsData';
+import { sendContactForm } from '../../lib/email';
 
 function PageHeader({ title, subtitle }: { title: string; subtitle: string }) {
   return (
@@ -40,12 +41,23 @@ export function ContactPage() {
     fullName: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const successTimerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (successTimerRef.current) {
+        window.clearTimeout(successTimerRef.current);
+      }
+    };
+  }, []);
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
@@ -78,7 +90,7 @@ export function ContactPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!validateForm()) {
@@ -86,27 +98,51 @@ export function ContactPage() {
     }
 
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      setIsSubmitting(false);
+    try {
+      sendContactForm(
+        {
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          subject: 'Website Contact Inquiry',
+        },
+        contactInfo.email
+      );
+
       setIsSuccess(true);
       setFormData({ fullName: '', email: '', phone: '', message: '' });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => {
+
+      if (successTimerRef.current) {
+        window.clearTimeout(successTimerRef.current);
+      }
+
+      successTimerRef.current = window.setTimeout(() => {
         setIsSuccess(false);
+        successTimerRef.current = null;
       }, 5000);
-    }, 1500);
+    } catch (error) {
+      console.error('Contact form submission failed:', error);
+      setSubmitError(
+        `Unable to open your email app. Please send your message directly to ${contactInfo.email}.`
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
     if (errors[name as keyof FormErrors]) {
-      setErrors(prev => ({ ...prev, [name]: undefined }));
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+
+    if (submitError) {
+      setSubmitError(null);
     }
   };
 
@@ -120,7 +156,6 @@ export function ContactPage() {
       <section className="py-20 bg-white">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
-            {/* Contact Information */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -128,7 +163,10 @@ export function ContactPage() {
             >
               <h2 className="text-3xl font-bold text-[#0B3D91] mb-8">Get In Touch</h2>
               <p className="text-lg text-gray-700 mb-12 leading-relaxed">
-                We'd love to hear from you! Whether you're interested in joining our programs, exploring partnership opportunities, making a donation, volunteering, or simply learning more about our work, please reach out. Together, we can create positive change in vulnerable communities.
+                We would love to hear from you. Whether you are interested in joining our
+                programs, exploring partnership opportunities, making a donation, volunteering, or
+                simply learning more about our work, please reach out. Together, we can create
+                positive change in vulnerable communities.
               </p>
 
               <div className="space-y-8 mb-12">
@@ -148,7 +186,10 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-[#0B3D91] mb-2">Email Us</h3>
-                    <a href={`mailto:${contactInfo.email}`} className="text-gray-600 hover:text-[#1B7F5B] transition-colors">
+                    <a
+                      href={`mailto:${contactInfo.email}`}
+                      className="text-gray-600 hover:text-[#1B7F5B] transition-colors"
+                    >
                       {contactInfo.email}
                     </a>
                   </div>
@@ -160,7 +201,10 @@ export function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-[#0B3D91] mb-2">Call Us</h3>
-                    <a href={`tel:${contactInfo.phone}`} className="text-gray-600 hover:text-[#1B7F5B] transition-colors">
+                    <a
+                      href={`tel:${contactInfo.phone}`}
+                      className="text-gray-600 hover:text-[#1B7F5B] transition-colors"
+                    >
                       {contactInfo.phone}
                     </a>
                   </div>
@@ -177,7 +221,6 @@ export function ContactPage() {
               </div>
             </motion.div>
 
-            {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -199,9 +242,7 @@ export function ContactPage() {
                     } focus:outline-none focus:ring-2 focus:ring-[#0B3D91] transition-colors`}
                     placeholder="John Doe"
                   />
-                  {errors.fullName && (
-                    <p className="mt-2 text-sm text-red-500">{errors.fullName}</p>
-                  )}
+                  {errors.fullName && <p className="mt-2 text-sm text-red-500">{errors.fullName}</p>}
                 </div>
 
                 <div>
@@ -219,9 +260,7 @@ export function ContactPage() {
                     } focus:outline-none focus:ring-2 focus:ring-[#0B3D91] transition-colors`}
                     placeholder="john@example.com"
                   />
-                  {errors.email && (
-                    <p className="mt-2 text-sm text-red-500">{errors.email}</p>
-                  )}
+                  {errors.email && <p className="mt-2 text-sm text-red-500">{errors.email}</p>}
                 </div>
 
                 <div>
@@ -239,9 +278,7 @@ export function ContactPage() {
                     } focus:outline-none focus:ring-2 focus:ring-[#0B3D91] transition-colors`}
                     placeholder="+92 300 1234567"
                   />
-                  {errors.phone && (
-                    <p className="mt-2 text-sm text-red-500">{errors.phone}</p>
-                  )}
+                  {errors.phone && <p className="mt-2 text-sm text-red-500">{errors.phone}</p>}
                 </div>
 
                 <div>
@@ -259,9 +296,7 @@ export function ContactPage() {
                     } focus:outline-none focus:ring-2 focus:ring-[#0B3D91] transition-colors resize-none`}
                     placeholder="Tell us how we can help you..."
                   />
-                  {errors.message && (
-                    <p className="mt-2 text-sm text-red-500">{errors.message}</p>
-                  )}
+                  {errors.message && <p className="mt-2 text-sm text-red-500">{errors.message}</p>}
                 </div>
 
                 <button
@@ -272,7 +307,7 @@ export function ContactPage() {
                   {isSubmitting ? (
                     <>
                       <span className="inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-3" />
-                      Sending...
+                      Opening Email App...
                     </>
                   ) : (
                     <>
@@ -283,7 +318,17 @@ export function ContactPage() {
                 </button>
               </form>
 
-              {/* Success Message */}
+              {submitError && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-start space-x-3"
+                >
+                  <AlertCircle className="text-red-600 flex-shrink-0" size={20} />
+                  <p className="text-red-800 text-sm">{submitError}</p>
+                </motion.div>
+              )}
+
               {isSuccess && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -292,7 +337,8 @@ export function ContactPage() {
                 >
                   <CheckCircle className="text-green-600 flex-shrink-0" size={24} />
                   <p className="text-green-800">
-                    Thank you for contacting us! We'll get back to you within 24-48 hours.
+                    Your email app should open with this message pre-filled. Send it to complete
+                    your submission.
                   </p>
                 </motion.div>
               )}
@@ -301,7 +347,6 @@ export function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section */}
       <section className="py-0 bg-[#F5F5F5]">
         <div className="w-full h-[450px]">
           <iframe

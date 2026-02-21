@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+﻿import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Heart, Users, Sprout, Shield, Truck, CheckCircle } from 'lucide-react';
@@ -134,6 +134,8 @@ function ImpactStatsSection() {
 }
 
 function AboutPreviewSection() {
+  const [firstImage, secondImage] = homepageData.aboutPreviewImages;
+
   return (
     <section className="py-24 bg-[#F5F5F5]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -188,12 +190,12 @@ function AboutPreviewSection() {
           >
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&h=400&fit=crop"
+                src={firstImage}
                 alt="Community development"
                 className="rounded-2xl object-cover h-64 w-full shadow-lg"
               />
               <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=400&fit=crop"
+                src={secondImage}
                 alt="Women empowerment"
                 className="rounded-2xl object-cover h-64 w-full shadow-lg mt-8"
               />
@@ -393,3 +395,6 @@ export function HomePage() {
     </div>
   );
 }
+
+
+

@@ -24,7 +24,6 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          'vendor': ['react', 'react-dom'],
           'router': ['react-router-dom'],
         },
       },
@@ -33,4 +32,3 @@ export default defineConfig({
   assetsInclude: ['**/*.svg', '**/*.csv'],
   base:"/ICBE/",
 })
-
