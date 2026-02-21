@@ -134,7 +134,12 @@ function ImpactStatsSection() {
 }
 
 function AboutPreviewSection() {
-  const [firstImage, secondImage] = homepageData.aboutPreviewImages;
+  const fallbackAboutImages = [
+    `${import.meta.env.BASE_URL}assets/images/gallery/icbe-gallery-01.jpeg`,
+    `${import.meta.env.BASE_URL}assets/images/gallery/icbe-gallery-02.jpeg`,
+  ];
+  const firstImage = homepageData.aboutPreviewImages[0] || fallbackAboutImages[0];
+  const secondImage = homepageData.aboutPreviewImages[1] || fallbackAboutImages[1];
 
   return (
     <section className="py-24 bg-[#F5F5F5]">
@@ -193,11 +198,23 @@ function AboutPreviewSection() {
                 src={firstImage}
                 alt="Community development"
                 className="rounded-2xl object-cover h-64 w-full shadow-lg"
+                onError={(event) => {
+                  const target = event.currentTarget;
+                  if (target.src !== fallbackAboutImages[0]) {
+                    target.src = fallbackAboutImages[0];
+                  }
+                }}
               />
               <img
                 src={secondImage}
                 alt="Women empowerment"
                 className="rounded-2xl object-cover h-64 w-full shadow-lg mt-8"
+                onError={(event) => {
+                  const target = event.currentTarget;
+                  if (target.src !== fallbackAboutImages[1]) {
+                    target.src = fallbackAboutImages[1];
+                  }
+                }}
               />
             </div>
             <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-[#1B7F5B] rounded-2xl -z-10" />
