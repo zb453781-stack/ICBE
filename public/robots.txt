@@ -1,4 +1,4 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
 
-Sitemap: /sitemap.xml
+Sitemap: https://zb453781-stack.github.io/ICBE/sitemap.xml

@@ -1,4 +1,5 @@
-const gaId = import.meta.env.VITE_GA_ID?.trim();
+const DEFAULT_GA_ID = 'G-H3RW8W7E0J';
+const gaId = (import.meta.env.VITE_GA_ID || DEFAULT_GA_ID).trim();
 let gaInitialized = false;
 
 declare global {

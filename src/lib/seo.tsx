@@ -21,8 +21,10 @@ export const SEO = ({
 
   const configuredSiteUrl = import.meta.env.VITE_SITE_URL?.trim();
   const runtimeOrigin =
-    typeof window !== 'undefined' ? window.location.origin : 'https://icbe-ngo.org';
-  const siteUrl = (configuredSiteUrl || runtimeOrigin).replace(/\/+$/, '');
+    typeof window !== 'undefined' ? window.location.origin : 'https://zb453781-stack.github.io';
+  const runtimeBasePath = (import.meta.env.BASE_URL || '/').replace(/\/+$/, '');
+  const runtimeSiteUrl = `${runtimeOrigin}${runtimeBasePath === '/' ? '' : runtimeBasePath}`;
+  const siteUrl = (configuredSiteUrl || runtimeSiteUrl).replace(/\/+$/, '');
 
   const canonicalUrl = canonical
     ? canonical.startsWith('http')

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from 'r
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { contactInfo } from '../../data/cmsData';
-import { sendContactForm, type ContactDeliveryMethod } from '../../lib/email';
+import { sendContactForm } from '../../lib/email';
 
 function PageHeader({ title, subtitle }: { title: string; subtitle: string }) {
   return (
@@ -49,7 +49,6 @@ export function ContactPage() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [deliveryMethod, setDeliveryMethod] = useState<ContactDeliveryMethod | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const successTimerRef = useRef<number | null>(null);
 
@@ -103,7 +102,7 @@ export function ContactPage() {
     setSubmitError(null);
 
     try {
-      const method = await sendContactForm(
+      await sendContactForm(
         {
           fullName: formData.fullName,
           email: formData.email,
@@ -113,7 +112,6 @@ export function ContactPage() {
         },
         contactInfo.email
       );
-      setDeliveryMethod(method);
       setIsSuccess(true);
       setFormData({ fullName: '', email: '', phone: '', message: '' });
 
@@ -346,11 +344,7 @@ export function ContactPage() {
                   className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center space-x-3"
                 >
                   <CheckCircle className="text-green-600 flex-shrink-0" size={24} />
-                  <p className="text-green-800">
-                    {deliveryMethod === 'direct'
-                      ? 'Your inquiry has been sent successfully to icbe.pk@gmail.com.'
-                      : 'Your email app should open with this message pre-filled. Send it to complete your submission.'}
-                  </p>
+                  <p className="text-green-800">Your inquiry has been sent successfully to icbe.pk@gmail.com.</p>
                 </motion.div>
               )}
             </motion.div>

@@ -6,26 +6,7 @@ export interface ContactFormPayload {
   subject?: string;
 }
 
-export type ContactDeliveryMethod = 'direct' | 'mailto_fallback';
-
-const encode = (value: string): string => encodeURIComponent(value).replace(/%20/g, '+');
-
-export const buildContactMailto = (
-  payload: ContactFormPayload,
-  recipientEmail: string
-): string => {
-  const subject = payload.subject?.trim() || 'New Contact Form Submission';
-  const body = [
-    `Name: ${payload.fullName.trim()}`,
-    `Email: ${payload.email.trim()}`,
-    `Phone: ${payload.phone.trim()}`,
-    '',
-    'Message:',
-    payload.message.trim(),
-  ].join('\n');
-
-  return `mailto:${recipientEmail}?subject=${encode(subject)}&body=${encode(body)}`;
-};
+export type ContactDeliveryMethod = 'direct';
 
 export const sendContactForm = async (
   payload: ContactFormPayload,
@@ -38,8 +19,10 @@ export const sendContactForm = async (
   const subject = payload.subject?.trim() || 'New Contact Form Submission';
   const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(recipientEmail)}`;
 
+  let response: Response;
+
   try {
-    const response = await fetch(endpoint, {
+    response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -54,14 +37,13 @@ export const sendContactForm = async (
         _captcha: 'false',
       }),
     });
-
-    if (response.ok) {
-      return 'direct';
-    }
   } catch {
-    // Fall back to mailto below.
+    throw new Error('Network error while submitting contact form.');
   }
 
-  window.location.href = buildContactMailto(payload, recipientEmail);
-  return 'mailto_fallback';
+  if (!response.ok) {
+    throw new Error(`Contact form submission failed with status ${response.status}.`);
+  }
+
+  return 'direct';
 };
