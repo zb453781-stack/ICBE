@@ -1,18 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ICBE empowers vulnerable communities through climate resilience, youth leadership, mental health, and gender justice programs across Pakistan."
+    />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <title>ICBE</title>
+    <script type="module" crossorigin src="/ICBE/assets/index-Cy2QPTGF.js"></script>
+    <link rel="modulepreload" crossorigin href="/ICBE/assets/router-BwAgG_Zq.js">
+    <link rel="stylesheet" crossorigin href="/ICBE/assets/index-D7FJEjt6.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (function (location) {
+        if (location.search[1] === "/") {
+          var decoded = location.search
+            .slice(1)
+            .split("&")
+            .map(function (value) {
+              return value.replace(/~and~/g, "&");
+            })
+            .join("?");
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="icon" type="image/png" href="logo.png" />
-      <title>ICBE</title>
-      <script type="module" crossorigin src="/ICBE/assets/index-9NKsiuNq.js"></script>
-      <link rel="modulepreload" crossorigin href="/ICBE/assets/router-BwAgG_Zq.js">
-      <link rel="stylesheet" crossorigin href="/ICBE/assets/index-BonfT2E4.css">
-    </head>
+          var basePath = location.pathname.endsWith("/")
+            ? location.pathname.slice(0, -1)
+            : location.pathname;
 
-    <body>
-      <div id="root"></div>
-    </body>
-  </html>
-  
+          window.history.replaceState(null, null, basePath + decoded + location.hash);
+        }
+      })(window.location);
+    </script>
+  </body>
+</html>
+
