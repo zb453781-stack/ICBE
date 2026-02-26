@@ -5,7 +5,7 @@ import { galleryData } from '../../data/cmsData';
 
 function PageHeader({ title, subtitle }: { title: string; subtitle: string }) {
   return (
-    <section className="pt-24 sm:pt-32 pb-12 sm:pb-16 bg-gradient-to-br from-[#0B3D91] to-[#1B7F5B]">
+    <section className="pt-24 sm:pt-32 pb-12 sm:pb-16 bg-gradient-to-b from-white via-gray-50 to-gray-100">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -13,8 +13,8 @@ function PageHeader({ title, subtitle }: { title: string; subtitle: string }) {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">{title}</h1>
-          <p className="text-base sm:text-xl text-white/90">{subtitle}</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0C3F66] mb-6">{title}</h1>
+          <p className="text-base sm:text-xl text-gray-600">{subtitle}</p>
         </motion.div>
       </div>
     </section>
@@ -65,19 +65,19 @@ function ImageModal({ image, onClose }: ImageModalProps) {
           </div>
 
           <div className="p-4 sm:p-8">
-            <div className="inline-block px-3 py-1 bg-[#0B3D91]/10 text-[#0B3D91] rounded-full text-sm font-medium mb-4">
+            <div className="inline-block px-3 py-1 bg-[#0C3F66]/10 text-[#0C3F66] rounded-full text-sm font-medium mb-4">
               {image.category}
             </div>
-            <h2 className="text-xl sm:text-3xl font-bold text-[#0B3D91] mb-4">{image.title}</h2>
+            <h2 className="text-xl sm:text-3xl font-bold text-[#0C3F66] mb-4">{image.title}</h2>
             <p className="text-sm sm:text-base text-gray-700 mb-6 leading-relaxed">{image.caption}</p>
 
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-gray-600">
-                <MapPin size={20} className="text-[#1B7F5B]" />
+                <MapPin size={20} className="text-[#0F7F4F]" />
                 <span>{image.location}</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-600">
-                <Calendar size={20} className="text-[#1B7F5B]" />
+                <Calendar size={20} className="text-[#0F7F4F]" />
                 <span>{formatDate(image.date)}</span>
               </div>
             </div>
@@ -129,7 +129,7 @@ export function GalleryPage() {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-3.5 sm:px-6 py-2 sm:py-3 rounded-lg text-xs sm:text-base font-medium transition-all ${
                     selectedCategory === category
-                      ? 'bg-[#0B3D91] text-white'
+                      ? 'bg-[#0C3F66] text-white'
                       : 'bg-[#F5F5F5] text-gray-700 hover:bg-gray-200'
                   }`}
                 >
@@ -166,7 +166,7 @@ export function GalleryPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0">
                     <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
-                      <div className="text-sm font-medium text-[#1B7F5B] mb-2">{image.category}</div>
+                      <div className="text-sm font-medium text-[#0F7F4F] mb-2">{image.category}</div>
                       <h3 className="font-semibold text-lg mb-2">{image.title}</h3>
                       <div className="flex items-center space-x-2 text-sm text-white/80">
                         <MapPin size={14} />

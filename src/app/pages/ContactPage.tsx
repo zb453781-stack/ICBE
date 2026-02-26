@@ -14,7 +14,7 @@ function PageHeader({ title, subtitle }: { title: string; subtitle: string }) {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B3D91] mb-6">{title}</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0C3F66] mb-6">{title}</h1>
           <p className="text-base sm:text-xl text-gray-600">{subtitle}</p>
         </motion.div>
       </div>
@@ -160,7 +160,7 @@ export function ContactPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0B3D91] mb-6 sm:mb-8">Get In Touch</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0C3F66] mb-6 sm:mb-8">Get In Touch</h2>
               <p className="text-base sm:text-lg text-gray-700 mb-10 sm:mb-12 leading-relaxed">
                 ICBE serves communities across Balochistan through inclusive, needs-based action.
                 Reach out to collaborate, support ongoing programs, or join our work for justice,
@@ -169,17 +169,17 @@ export function ContactPage() {
 
               <div className="space-y-6 sm:space-y-8 mb-10 sm:mb-12">
                 <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0B3D91]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="text-[#0B3D91]" size={20} />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0C3F66]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MapPin className="text-[#0C3F66]" size={20} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#0B3D91] mb-2">Visit Us</h3>
+                    <h3 className="font-semibold text-[#0C3F66] mb-2">Visit Us</h3>
                     <p className="text-gray-600 text-sm sm:text-base">{contactInfo.address}</p>
                     <a
                       href={directionsUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-block mt-2 text-sm sm:text-base text-[#1B7F5B] hover:text-[#166646] font-medium transition-colors"
+                      className="inline-block mt-2 text-sm sm:text-base text-[#0F7F4F] hover:text-[#138A58] font-medium transition-colors"
                     >
                       Get Directions
                     </a>
@@ -187,14 +187,14 @@ export function ContactPage() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0B3D91]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="text-[#0B3D91]" size={20} />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0C3F66]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Mail className="text-[#0C3F66]" size={20} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#0B3D91] mb-2">Email Us</h3>
+                    <h3 className="font-semibold text-[#0C3F66] mb-2">Email Us</h3>
                     <a
                       href={`mailto:${contactInfo.email}`}
-                      className="text-gray-600 text-sm sm:text-base hover:text-[#1B7F5B] transition-colors"
+                      className="text-gray-600 text-sm sm:text-base hover:text-[#0F7F4F] transition-colors"
                     >
                       {contactInfo.email}
                     </a>
@@ -202,14 +202,14 @@ export function ContactPage() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0B3D91]/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="text-[#0B3D91]" size={20} />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#0C3F66]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Phone className="text-[#0C3F66]" size={20} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#0B3D91] mb-2">Call Us</h3>
+                    <h3 className="font-semibold text-[#0C3F66] mb-2">Call Us</h3>
                     <a
                       href={`tel:${contactInfo.phone}`}
-                      className="text-gray-600 text-sm sm:text-base hover:text-[#1B7F5B] transition-colors"
+                      className="text-gray-600 text-sm sm:text-base hover:text-[#0F7F4F] transition-colors"
                     >
                       {contactInfo.phone}
                     </a>
@@ -218,7 +218,7 @@ export function ContactPage() {
               </div>
 
               <div className="bg-[#F5F5F5] rounded-2xl p-6 sm:p-8">
-                <h3 className="font-semibold text-[#0B3D91] mb-4">Who Can Get Involved</h3>
+                <h3 className="font-semibold text-[#0C3F66] mb-4">Who Can Get Involved</h3>
                 <div className="space-y-2 text-gray-600 text-sm sm:text-base">
                   <p>Volunteers</p>
                   <p>Youth leaders</p>
@@ -247,7 +247,7 @@ export function ContactPage() {
                     onChange={handleChange}
                     className={`w-full px-4 py-2.5 sm:py-3 rounded-lg border ${
                       errors.fullName ? 'border-red-500' : 'border-gray-300'
-                    } focus:outline-none focus:ring-2 focus:ring-[#0B3D91] transition-colors text-sm sm:text-base`}
+                    } focus:outline-none focus:ring-2 focus:ring-[#0C3F66] transition-colors text-sm sm:text-base`}
                     placeholder="Enter your full name here"
                   />
                   {errors.fullName && <p className="mt-2 text-sm text-red-500">{errors.fullName}</p>}
@@ -265,7 +265,7 @@ export function ContactPage() {
                     onChange={handleChange}
                     className={`w-full px-4 py-2.5 sm:py-3 rounded-lg border ${
                       errors.email ? 'border-red-500' : 'border-gray-300'
-                    } focus:outline-none focus:ring-2 focus:ring-[#0B3D91] transition-colors text-sm sm:text-base`}
+                    } focus:outline-none focus:ring-2 focus:ring-[#0C3F66] transition-colors text-sm sm:text-base`}
                     placeholder="Enter your email address here"
                   />
                   {errors.email && <p className="mt-2 text-sm text-red-500">{errors.email}</p>}
@@ -283,7 +283,7 @@ export function ContactPage() {
                     onChange={handleChange}
                     className={`w-full px-4 py-2.5 sm:py-3 rounded-lg border ${
                       errors.phone ? 'border-red-500' : 'border-gray-300'
-                    } focus:outline-none focus:ring-2 focus:ring-[#0B3D91] transition-colors text-sm sm:text-base`}
+                    } focus:outline-none focus:ring-2 focus:ring-[#0C3F66] transition-colors text-sm sm:text-base`}
                     placeholder="Enter your mobile number here"
                   />
                   {errors.phone && <p className="mt-2 text-sm text-red-500">{errors.phone}</p>}
@@ -301,7 +301,7 @@ export function ContactPage() {
                     rows={6}
                     className={`w-full px-4 py-2.5 sm:py-3 rounded-lg border ${
                       errors.message ? 'border-red-500' : 'border-gray-300'
-                    } focus:outline-none focus:ring-2 focus:ring-[#0B3D91] transition-colors resize-none text-sm sm:text-base`}
+                    } focus:outline-none focus:ring-2 focus:ring-[#0C3F66] transition-colors resize-none text-sm sm:text-base`}
                     placeholder="Enter your message or inquiry here"
                   />
                   {errors.message && <p className="mt-2 text-sm text-red-500">{errors.message}</p>}
@@ -310,7 +310,7 @@ export function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-8 py-3.5 sm:py-4 bg-[#1B7F5B] text-white rounded-lg font-semibold text-sm sm:text-base hover:bg-[#166646] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center group"
+                  className="w-full px-8 py-3.5 sm:py-4 bg-[#0F7F4F] text-white rounded-lg font-semibold text-sm sm:text-base hover:bg-[#138A58] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center group"
                 >
                   {isSubmitting ? (
                     <>

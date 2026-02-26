@@ -54,7 +54,7 @@ export function Footer() {
       : `mailto:${contactInfo.email}?subject=Terms%20of%20Service%20Request`;
 
   return (
-    <footer className="bg-[#0B3D91] text-white">
+    <footer className="bg-[#0C3F66] text-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
           <div>
@@ -76,7 +76,7 @@ export function Footer() {
                   <a
                     key={label}
                     href={href}
-                    className="group w-11 h-11 bg-white/10 hover:bg-[#1B7F5B] rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110"
+                    className="group w-11 h-11 bg-white/10 hover:bg-[#0F7F4F] rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110"
                     aria-label={label}
                     {...(isExternal ? { target: '_blank', rel: 'noreferrer' } : {})}
                   >
@@ -89,7 +89,7 @@ export function Footer() {
 
           <div>
             <h3 className="font-semibold text-lg mb-6 flex items-center space-x-2">
-              <span className="w-1 h-6 bg-[#1B7F5B] rounded-full"></span>
+              <span className="w-1 h-6 bg-[#0F7F4F] rounded-full"></span>
               <span>Quick Links</span>
             </h3>
             <ul className="space-y-3">
@@ -143,7 +143,7 @@ export function Footer() {
 
           <div>
             <h3 className="font-semibold text-lg mb-6 flex items-center space-x-2">
-              <span className="w-1 h-6 bg-[#1B7F5B] rounded-full"></span>
+              <span className="w-1 h-6 bg-[#0F7F4F] rounded-full"></span>
               <span>Core Focus Areas</span>
             </h3>
             <ul className="space-y-3">
@@ -197,18 +197,18 @@ export function Footer() {
 
           <div>
             <h3 className="font-semibold text-lg mb-6 flex items-center space-x-2">
-              <span className="w-1 h-6 bg-[#1B7F5B] rounded-full"></span>
+              <span className="w-1 h-6 bg-[#0F7F4F] rounded-full"></span>
               <span>Contact Us</span>
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start space-x-4">
-                <div className="w-10 h-10 bg-[#1B7F5B] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="w-10 h-10 bg-[#0F7F4F] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                   <MapPin size={20} className="text-white" />
                 </div>
                 <span className="text-white/80">{contactInfo.address}</span>
               </li>
               <li className="flex items-start space-x-4">
-                <div className="w-10 h-10 bg-[#1B7F5B] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="w-10 h-10 bg-[#0F7F4F] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Mail size={20} className="text-white" />
                 </div>
                 <a
@@ -219,7 +219,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start space-x-4">
-                <div className="w-10 h-10 bg-[#1B7F5B] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="w-10 h-10 bg-[#0F7F4F] rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Phone size={20} className="text-white" />
                 </div>
                 <a

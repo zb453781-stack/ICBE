@@ -47,7 +47,7 @@ function AnimatedCounter({ value, suffix = '' }: { value: number; suffix?: strin
   }, [isVisible, value]);
 
   return (
-    <div ref={ref} className="text-3xl sm:text-5xl font-bold text-[#0B3D91]">
+    <div ref={ref} className="text-3xl sm:text-5xl font-bold text-[#0C3F66]">
       {count.toLocaleString()}
       {suffix}
     </div>
@@ -67,7 +67,7 @@ function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0B3D91] mb-6 leading-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0C3F66] mb-6 leading-tight"
           >
             {homepageData.hero.title}
           </motion.h1>
@@ -128,7 +128,7 @@ function AboutPreviewSection() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0B3D91] mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0C3F66] mb-6">
               Empowering Communities, Advancing Equity, Building Resilience
             </h2>
             <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
@@ -139,15 +139,15 @@ function AboutPreviewSection() {
             </p>
             <div className="space-y-4 mb-8">
               <div className="flex items-start space-x-3">
-                <CheckCircle className="text-[#1B7F5B] flex-shrink-0 mt-1" size={24} />
+                <CheckCircle className="text-[#0F7F4F] flex-shrink-0 mt-1" size={24} />
                 <p className="text-gray-700">Inclusive and community-driven programming</p>
               </div>
               <div className="flex items-start space-x-3">
-                <CheckCircle className="text-[#1B7F5B] flex-shrink-0 mt-1" size={24} />
+                <CheckCircle className="text-[#0F7F4F] flex-shrink-0 mt-1" size={24} />
                 <p className="text-gray-700">Survivor-centered and evidence-informed action</p>
               </div>
               <div className="flex items-start space-x-3">
-                <CheckCircle className="text-[#1B7F5B] flex-shrink-0 mt-1" size={24} />
+                <CheckCircle className="text-[#0F7F4F] flex-shrink-0 mt-1" size={24} />
                 <p className="text-gray-700">Sustainable and equity-focused community impact</p>
               </div>
             </div>
@@ -204,10 +204,10 @@ function ServicesSection() {
     <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block px-4 py-2 bg-[#0B3D91]/10 text-[#0B3D91] rounded-full font-medium mb-6">
+          <div className="inline-block px-4 py-2 bg-[#0C3F66]/10 text-[#0C3F66] rounded-full font-medium mb-6">
             Our Services
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#0B3D91] mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0C3F66] mb-6">
             Our Core Focus Areas
           </h2>
           <p className="text-lg text-gray-600">
@@ -227,13 +227,13 @@ function ServicesSection() {
                 viewport={{ once: true }}
                 className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 transition-all group"
               >
-                <div className="w-14 h-14 bg-[#0B3D91]/10 rounded-xl flex items-center justify-center mb-6">
-                  <Icon className="text-[#0B3D91]" size={28} />
+                <div className="w-14 h-14 bg-[#0C3F66]/10 rounded-xl flex items-center justify-center mb-6">
+                  <Icon className="text-[#0C3F66]" size={28} />
                 </div>
-                <h3 className="text-xl font-semibold text-[#0B3D91] mb-4">{service.title}</h3>
+                <h3 className="text-xl font-semibold text-[#0C3F66] mb-4">{service.title}</h3>
                 <Link
                   to={`/services#${encodeURIComponent(service.id)}`}
-                  className="inline-flex items-center text-[#1B7F5B] font-medium hover:text-[#166646] transition-colors group"
+                  className="inline-flex items-center text-[#0F7F4F] font-medium hover:text-[#138A58] transition-colors group"
                 >
                   Learn more
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
@@ -246,7 +246,7 @@ function ServicesSection() {
         <div className="text-center mt-12">
           <Link
             to="/services"
-            className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-[#0B3D91] text-white rounded-lg font-semibold hover:bg-[#082d6b] transition-colors group"
+            className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-[#0C3F66] text-white rounded-lg font-semibold hover:bg-[#0C3F66] transition-colors group"
           >
             View All Services
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
@@ -264,10 +264,10 @@ function GalleryPreviewSection() {
     <section className="py-16 sm:py-24 bg-[#F5F5F5]">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-block px-4 py-2 bg-[#1B7F5B]/10 text-[#1B7F5B] rounded-full font-medium mb-6">
+          <div className="inline-block px-4 py-2 bg-[#0F7F4F]/10 text-[#0F7F4F] rounded-full font-medium mb-6">
             Our Impact
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#0B3D91] mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0C3F66] mb-6">
             Stories from the Field
           </h2>
           <p className="text-lg text-gray-600">
@@ -292,7 +292,7 @@ function GalleryPreviewSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0">
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <div className="text-sm font-medium text-[#1B7F5B] mb-2">{image.category}</div>
+                  <div className="text-sm font-medium text-[#0F7F4F] mb-2">{image.category}</div>
                   <h3 className="font-semibold mb-1">{image.title}</h3>
                   <p className="text-sm text-white/80">{image.location}</p>
                 </div>
@@ -304,7 +304,7 @@ function GalleryPreviewSection() {
         <div className="text-center mt-12">
           <Link
             to="/gallery"
-            className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-[#1B7F5B] text-white rounded-lg font-semibold hover:bg-[#166646] transition-colors group"
+            className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-[#0F7F4F] text-white rounded-lg font-semibold hover:bg-[#138A58] transition-colors group"
           >
             View Full Gallery
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
@@ -325,7 +325,7 @@ function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-3xl sm:text-4xl font-bold text-[#0B3D91] mb-6"
+            className="text-3xl sm:text-4xl font-bold text-[#0C3F66] mb-6"
           >
             Be Part of the Change
           </motion.h2>
@@ -347,7 +347,7 @@ function CTASection() {
           >
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#0B3D91] rounded-lg font-semibold hover:bg-gray-100 transition-colors group"
+              className="inline-flex items-center justify-center px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#0C3F66] rounded-lg font-semibold hover:bg-gray-100 transition-colors group"
             >
               Contact Us
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />

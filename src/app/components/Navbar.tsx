@@ -88,10 +88,10 @@ export function Navbar() {
                 onClick={() => handleNavClick(link.path)}
                 className={`relative px-3 lg:px-4 py-2 text-xs lg:text-sm font-semibold uppercase tracking-wide transition-all duration-300 group overflow-hidden ${
                   link.path === '/contact'
-                    ? 'px-4 lg:px-6 py-2.5 bg-gradient-to-r from-[#1B7F5B] to-[#0B3D91] text-white rounded-lg shadow-md hover:shadow-lg hover:from-[#166646] hover:to-[#0A2E6F] transform hover:scale-105'
+                    ? 'px-4 lg:px-6 py-2.5 bg-[#0C3F66] text-white rounded-lg shadow-md hover:shadow-lg hover:opacity-90 transform hover:scale-105'
                     : location.pathname === link.path
-                    ? 'text-[#0B3D91]'
-                    : 'text-gray-600 hover:text-[#0B3D91]'
+                    ? 'text-[#0C3F66]'
+                    : 'text-gray-600 hover:text-[#0C3F66]'
                 }`}
               >
                 <span className="relative inline-block">
@@ -100,7 +100,7 @@ export function Navbar() {
                     <>
                       <motion.div
                         layoutId="navbar-indicator"
-                        className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1B7F5B] to-transparent rounded-full"
+                        className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0F7F4F] to-transparent rounded-full"
                         initial={false}
                         animate={{
                           width: location.pathname === link.path ? '100%' : '0%',
@@ -109,7 +109,7 @@ export function Navbar() {
                       />
                       {location.pathname !== link.path && (
                         <motion.div
-                          className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#1B7F5B] to-transparent rounded-full"
+                          className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0F7F4F] to-transparent rounded-full"
                           initial={{ width: 0 }}
                           whileHover={{ width: '100%' }}
                           transition={{ duration: 0.3 }}
@@ -125,7 +125,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-gray-700 hover:text-[#0B3D91]"
+            className="md:hidden p-2 text-gray-700 hover:text-[#0C3F66]"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -155,10 +155,10 @@ export function Navbar() {
                     onClick={() => handleNavClick(link.path)}
                     className={`block px-5 py-3 rounded-xl font-semibold uppercase tracking-wider transition-all duration-300 text-sm ${
                       link.path === '/contact'
-                        ? 'bg-gradient-to-r from-[#1B7F5B] to-[#0B3D91] text-white shadow-md hover:shadow-lg hover:from-[#166646] hover:to-[#0A2E6F] transform hover:scale-105'
+                        ? 'bg-[#0C3F66] text-white shadow-md hover:shadow-lg hover:opacity-90 transform hover:scale-105'
                         : location.pathname === link.path
-                        ? 'bg-gradient-to-r from-[#0B3D91] to-[#1B7F5B] text-white shadow-md'
-                        : 'text-gray-700 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 hover:text-[#0B3D91]'
+                        ? 'bg-[#0C3F66] text-white shadow-md'
+                        : 'text-gray-700 hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-50 hover:text-[#0C3F66]'
                     }`}
                   >
                     {link.label}
