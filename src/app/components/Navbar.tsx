@@ -49,20 +49,7 @@ export function Navbar() {
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
-            {/* <img
-            // src={`${import.meta.env.BASE_URL}logo.png`}
-              src="/logo.png"
-              alt="ICBE Logo"
-              className="h-16 w-auto object-contain drop-shadow-lg hover:drop-shadow-xl transition-all"
-            onError={(e) => {
-      // Fallback: If relative path fails, try the absolute base path
-      const target = e.currentTarget;
-      if (target.src.indexOf(window.location.origin + '/logo.png') === -1) {
-        target.src = `${import.meta.env.BASE_URL}logo.png`;
-      }
-    }}
-            /> */}
+          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity bg-white rounded-lg p-2 sm:p-3">
             <img
     // We use the dynamic BASE_URL to ensure it works on GitHub's /ICBE/ subfolder
     // src={`${import.meta.env.BASE_URL}logo.png`}
