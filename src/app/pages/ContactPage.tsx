@@ -6,7 +6,7 @@ import { sendContactForm } from '../../lib/email';
 
 function PageHeader({ title, subtitle }: { title: string; subtitle: string }) {
   return (
-    <section className="pt-24 sm:pt-32 pb-12 sm:pb-16 bg-gradient-to-br from-[#0B3D91] to-[#1B7F5B]">
+    <section className="pt-24 sm:pt-32 pb-12 sm:pb-16 bg-gradient-to-b from-white via-gray-50 to-gray-100">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -14,8 +14,8 @@ function PageHeader({ title, subtitle }: { title: string; subtitle: string }) {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">{title}</h1>
-          <p className="text-base sm:text-xl text-white/90">{subtitle}</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0B3D91] mb-6">{title}</h1>
+          <p className="text-base sm:text-xl text-gray-600">{subtitle}</p>
         </motion.div>
       </div>
     </section>
@@ -358,7 +358,7 @@ export function ContactPage() {
             src={contactInfo.mapUrl}
             width="100%"
             height="100%"
-            style={{ border: 0 }}
+            className="iframe-seamless"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
