@@ -1,0 +1,274 @@
+{
+  "homepage": {
+    "hero": {
+      "title": "Institute for Community Building and Empowerment (ICBE)",
+      "subtitle": "Empowering Communities, Advancing Equity, Building Resilience.",
+      "ctaText": "About ICBE",
+      "ctaLink": "/about"
+    },
+    "impactStats": [
+      {
+        "value": 5000,
+        "label": "Youth Leaders by 2030",
+        "suffix": "+"
+      },
+      {
+        "value": 5,
+        "label": "Core Focus Areas",
+        "suffix": ""
+      },
+      {
+        "value": 7,
+        "label": "Strategic Objectives",
+        "suffix": ""
+      },
+      {
+        "value": 2030,
+        "label": "Impact Horizon",
+        "suffix": ""
+      }
+    ],
+    "aboutPreviewImages": [
+      "assets/images/gallery/icbe-gallery-01.jpeg",
+      "assets/images/gallery/icbe-gallery-02.jpeg"
+    ]
+  },
+  "about": {
+    "introduction": "The Institute for Community Building and Empowerment (ICBE) is a non-profit, community-driven organization founded by Humaira Shaheen with a mission to serve individuals and communities across Balochistan without discrimination based on geography, gender, identity, or background. ICBE was established to bridge the gap between potential and opportunity by creating inclusive platforms that nurture ethical leadership, strengthen communities, and promote sustainable development. Our foundational belief is: no one left behind.",
+    "vision": "To build a just, resilient, and empowered Balochistan where every individual - regardless of location, identity, or circumstance - has access to support, dignity, and the opportunity to thrive.",
+    "mission": "ICBE is dedicated to serving all communities and individuals across Balochistan by providing timely, inclusive, and needs-based interventions. We empower people through climate resilience efforts, GBV prevention and response, youth engagement, mental health programs, and holistic community development, ensuring no voice is unheard and no need is overlooked.",
+    "objectives": [
+      "Develop leadership competencies among emerging and established leaders.",
+      "Promote inclusive leadership across youth, adults, and elders.",
+      "Strengthen community institutions through participatory governance.",
+      "Provide mentorship and networking opportunities for change makers.",
+      "Conduct research and advocacy on empowerment and sustainability.",
+      "Build partnerships with local, national, and international organizations.",
+      "Establish mobile outreach systems for underserved and disaster-affected communities."
+    ],
+    "coreValues": [
+      {
+        "title": "Inclusive",
+        "description": "We serve every community with fairness, dignity, and equal respect."
+      },
+      {
+        "title": "Community-Driven",
+        "description": "We design and deliver programs with communities, not for them."
+      },
+      {
+        "title": "Survivor-Centered",
+        "description": "We prioritize safety, confidentiality, and agency in every support pathway."
+      },
+      {
+        "title": "Evidence-Informed",
+        "description": "We use data, local learning, and research to shape effective action."
+      },
+      {
+        "title": "Sustainable",
+        "description": "We connect short-term support with long-term systems strengthening."
+      },
+      {
+        "title": "Equity-Focused",
+        "description": "We address structural barriers so no one is left behind."
+      }
+    ],
+    "timeline": [
+      {
+        "year": "Step 1",
+        "title": "Listening First",
+        "description": "Understanding community needs through dialogue and trust-building."
+      },
+      {
+        "year": "Step 2",
+        "title": "Co-Creation",
+        "description": "Designing programs with communities to ensure relevance and ownership."
+      },
+      {
+        "year": "Step 3",
+        "title": "Capacity Building",
+        "description": "Strengthening skills, institutions, and local systems for resilience."
+      },
+      {
+        "year": "Step 4",
+        "title": "Sustainable Solutions",
+        "description": "Integrating immediate relief with long-term development pathways."
+      },
+      {
+        "year": "Step 5",
+        "title": "Partnership and Collaboration",
+        "description": "Working with stakeholders to scale impact across Balochistan."
+      },
+      {
+        "year": "Ongoing",
+        "title": "Collective Progress",
+        "description": "Every outreach visit, training, and partnership advances dignity and justice."
+      }
+    ]
+  },
+  "services": [
+    {
+      "id": "climate-resilience",
+      "title": "Climate Resilience and Emergency Response",
+      "description": "ICBE strengthens climate resilience and emergency response in remote and underserved areas through preparedness, adaptation awareness, community training, and mobile emergency outreach.",
+      "icon": "CloudRain",
+      "impactFocus": "Equipping communities to anticipate, respond to, and recover from climate-related crises.",
+      "slug": "climate-resilience",
+      "image": "assets/images/gallery/icbe-gallery-01.jpeg"
+    },
+    {
+      "id": "mental-health",
+      "title": "Mental Health and Psychosocial Support",
+      "description": "ICBE provides individual and group counseling rooted in trauma-informed care, with focused support for survivors of violence, adolescents, and frontline workers.",
+      "icon": "Heart",
+      "impactFocus": "Reducing stigma and strengthening community-based mental health support systems.",
+      "slug": "mental-health",
+      "image": "assets/images/gallery/icbe-gallery-06.jpeg"
+    },
+    {
+      "id": "gbv-sea-prevention",
+      "title": "GBV and SEA Prevention",
+      "description": "ICBE prevents gender-based violence and sexual exploitation and abuse through survivor-centered services, case management capacity building, district awareness campaigns, and safe referral pathways.",
+      "icon": "Shield",
+      "impactFocus": "Protecting safety, dignity, and access to support for survivors.",
+      "slug": "gbv-sea-prevention",
+      "image": "assets/images/gallery/icbe-gallery-10.jpeg"
+    },
+    {
+      "id": "youth-leadership",
+      "title": "Youth Leadership and Empowerment",
+      "description": "ICBE develops confident and capable young leaders through leadership training, digital literacy, peacebuilding initiatives, and social entrepreneurship mentorship.",
+      "icon": "Users",
+      "impactFocus": "Training 5,000 youth leaders by 2030 to lead change in their communities.",
+      "slug": "youth-leadership",
+      "image": "assets/images/gallery/icbe-gallery-07.jpeg"
+    },
+    {
+      "id": "community-development",
+      "title": "Community Development and Governance",
+      "description": "ICBE promotes participatory governance, intergenerational dialogue, and stronger local institutions to build accountable, transparent, and resilient community systems.",
+      "icon": "Truck",
+      "impactFocus": "Supporting communities to lead inclusive and sustainable local development.",
+      "slug": "community-development",
+      "image": "assets/images/gallery/icbe-gallery-09.jpeg"
+    }
+  ],
+  "gallery": [
+    {
+      "id": "1",
+      "title": "Community Dialogue Session",
+      "imageUrl": "assets/images/gallery/icbe-gallery-01.jpeg",
+      "category": "Community Meetings",
+      "date": "2026-02-19",
+      "location": "Balochistan, Pakistan",
+      "caption": "Community members participating in an in-person dialogue session with ICBE team support."
+    },
+    {
+      "id": "2",
+      "title": "Capacity Building Workshop",
+      "imageUrl": "assets/images/gallery/icbe-gallery-02.jpeg",
+      "category": "Training",
+      "date": "2026-02-19",
+      "location": "Balochistan, Pakistan",
+      "caption": "Facilitator-led workshop focused on practical community development skills."
+    },
+    {
+      "id": "3",
+      "title": "Women Awareness Circle I",
+      "imageUrl": "assets/images/gallery/icbe-gallery-03.jpeg",
+      "category": "Women Empowerment",
+      "date": "2026-02-19",
+      "location": "Balochistan, Pakistan",
+      "caption": "Women gathering in a local session to discuss social awareness and collective action."
+    },
+    {
+      "id": "4",
+      "title": "Women Awareness Circle II",
+      "imageUrl": "assets/images/gallery/icbe-gallery-04.jpeg",
+      "category": "Women Empowerment",
+      "date": "2026-02-19",
+      "location": "Balochistan, Pakistan",
+      "caption": "Continued engagement session supporting women-led community participation."
+    },
+    {
+      "id": "5",
+      "title": "Village Youth Portrait",
+      "imageUrl": "assets/images/gallery/icbe-gallery-05.jpeg",
+      "category": "Youth Programs",
+      "date": "2026-02-19",
+      "location": "Balochistan, Pakistan",
+      "caption": "Young community members photographed during field outreach activities."
+    },
+    {
+      "id": "6",
+      "title": "Case Support Meeting",
+      "imageUrl": "assets/images/gallery/icbe-gallery-06.jpeg",
+      "category": "Mental Health",
+      "date": "2026-02-19",
+      "location": "Balochistan, Pakistan",
+      "caption": "A support-focused consultation with local stakeholders in a protected setting."
+    },
+    {
+      "id": "7",
+      "title": "Field Outreach Portrait",
+      "imageUrl": "assets/images/gallery/icbe-gallery-07.jpeg",
+      "category": "Field Outreach",
+      "date": "2026-02-19",
+      "location": "Balochistan, Pakistan",
+      "caption": "ICBE outreach participant with children during community field engagement."
+    },
+    {
+      "id": "8",
+      "title": "Stakeholder Coordination Session",
+      "imageUrl": "assets/images/gallery/icbe-gallery-08.jpeg",
+      "category": "Community Meetings",
+      "date": "2026-02-19",
+      "location": "Balochistan, Pakistan",
+      "caption": "Community representatives and team members coordinating priorities for local action."
+    },
+    {
+      "id": "9",
+      "title": "Program Team Group Photo",
+      "imageUrl": "assets/images/gallery/icbe-gallery-09.jpeg",
+      "category": "Team Activities",
+      "date": "2026-02-19",
+      "location": "Balochistan, Pakistan",
+      "caption": "ICBE staff and participants gathered after completing a program activity."
+    },
+    {
+      "id": "10",
+      "title": "Women Community Consultation",
+      "imageUrl": "assets/images/gallery/icbe-gallery-10.jpeg",
+      "category": "Women Empowerment",
+      "date": "2026-02-19",
+      "location": "Balochistan, Pakistan",
+      "caption": "Women-led consultation meeting focused on local needs and solutions."
+    },
+    {
+      "id": "11",
+      "title": "Outdoor Support Circle",
+      "imageUrl": "assets/images/gallery/icbe-gallery-11.jpeg",
+      "category": "Women Empowerment",
+      "date": "2026-02-19",
+      "location": "Balochistan, Pakistan",
+      "caption": "An outdoor group discussion session supporting community wellbeing and peer support."
+    },
+    {
+      "id": "12",
+      "title": "Household Consultation Visit",
+      "imageUrl": "assets/images/gallery/icbe-gallery-12.jpeg",
+      "category": "Field Outreach",
+      "date": "2026-02-19",
+      "location": "Balochistan, Pakistan",
+      "caption": "ICBE team and local residents in a household-level consultation visit."
+    }
+  ],
+  "contact": {
+    "address": "Quetta, Balochistan",
+    "email": "icbe.pk@gmail.com",
+    "phone": "0330-2164997",
+    "mapUrl": "https://www.google.com/maps?q=30.1798,66.9750&z=16&output=embed",
+    "socialLinks": {},
+    "privacyPolicyUrl": "",
+    "termsOfServiceUrl": ""
+  }
+}
