@@ -43,7 +43,7 @@ export function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#0C3F66] shadow-lg' : 'bg-[#0C3F66]/95 backdrop-blur-sm'
+        isScrolled ? 'bg-primary shadow-lg' : 'bg-primary/95 backdrop-blur-sm'
       }`}
     >
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -88,9 +88,9 @@ export function Navbar() {
                 onClick={() => handleNavClick(link.path)}
                 className={`relative px-3 lg:px-4 py-2 text-xs lg:text-sm font-semibold uppercase tracking-wide transition-all duration-300 group overflow-hidden ${
                   link.path === '/contact'
-                    ? 'px-4 lg:px-6 py-2.5 bg-[#F5B10A] text-[#0C3F66] rounded-lg shadow-md hover:shadow-lg hover:opacity-90 transform hover:scale-105'
+                    ? 'px-4 lg:px-6 py-2.5 bg-accent text-primary rounded-lg shadow-md hover:shadow-lg hover:opacity-90 transform hover:scale-105'
                     : location.pathname === link.path
-                    ? 'text-[#F5B10A]'
+                    ? 'text-accent'
                     : 'text-white/90 hover:text-white'
                 }`}
               >
@@ -100,7 +100,7 @@ export function Navbar() {
                     <>
                       <motion.div
                         layoutId="navbar-indicator"
-                        className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5B10A] to-transparent rounded-full"
+                        className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-transparent rounded-full"
                         initial={false}
                         animate={{
                           width: location.pathname === link.path ? '100%' : '0%',
@@ -109,7 +109,7 @@ export function Navbar() {
                       />
                       {location.pathname !== link.path && (
                         <motion.div
-                          className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#F5B10A] to-transparent rounded-full"
+                          className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-transparent rounded-full"
                           initial={{ width: 0 }}
                           whileHover={{ width: '100%' }}
                           transition={{ duration: 0.3 }}
@@ -140,7 +140,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#0C3F66] border-t border-white/10 overflow-hidden"
+            className="md:hidden bg-primary border-t border-white/10 overflow-hidden"
           >
             <div className="px-4 py-4 space-y-2">
               {navLinks.map((link) => (
@@ -155,9 +155,9 @@ export function Navbar() {
                     onClick={() => handleNavClick(link.path)}
                     className={`block px-5 py-3 rounded-xl font-semibold uppercase tracking-wider transition-all duration-300 text-sm ${
                       link.path === '/contact'
-                        ? 'bg-[#F5B10A] text-[#0C3F66] shadow-md hover:shadow-lg hover:opacity-90 transform hover:scale-105'
+                        ? 'bg-accent text-primary shadow-md hover:shadow-lg hover:opacity-90 transform hover:scale-105'
                         : location.pathname === link.path
-                        ? 'bg-white/15 text-[#F5B10A] shadow-md'
+                        ? 'bg-white/15 text-accent shadow-md'
                         : 'text-white/90 hover:bg-white/10 hover:text-white'
                     }`}
                   >
